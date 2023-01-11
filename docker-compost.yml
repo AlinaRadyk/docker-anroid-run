@@ -1,0 +1,18 @@
+version: '2.2'
+
+services:
+  dockercrewcost:
+    build:
+      context: .
+    tty: true
+    network_mode: "host"
+    ports:
+      - '5037:5037'
+    volumes:
+      - ./:/new-project/:delegated
+      - notused:/./node_modules
+    healthcheck:
+      disable: true
+    entrypoint: [ "bash", "-c", "adb connect docker.for.mac.localhost:5555 && yarn android"]
+volumes:
+  notused:
