@@ -19,9 +19,9 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH /home/node/.npm-global/bin:$PATH
 
 # due to default /opt permissions we have to create the dir with root and change perms
-RUN mkdir /new-project && chown node:node /crewcost
-WORKDIR /new-project
-ENV PATH /new-project/node_modules/.bin:$PATH
+RUN mkdir /dockerAndroidRun && chown node:node /dockerAndroidRun
+WORKDIR /dockerAndroidRun
+ENV PATH /dockerAndroidRun/node_modules/.bin:$PATH
 
 USER node
 RUN yarn install
